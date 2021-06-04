@@ -15,10 +15,7 @@ class  ExpensesApp extends StatelessWidget {
 
 class MyHomePage extends StatelessWidget {
 
-  @override
-  Widget build(BuildContext context) {
-
-    final _transactions = {
+     final _transactions = {
       Transaction(
         id: 't1',
         title: 'Novo Tênis de Corrida',
@@ -32,6 +29,9 @@ class MyHomePage extends StatelessWidget {
         date: DateTime.now()
       )
     };
+
+  @override
+  Widget build(BuildContext context) {
 
     return Scaffold(
       appBar: AppBar(
@@ -48,8 +48,12 @@ class MyHomePage extends StatelessWidget {
               elevation: 5,
             ),
           ),
-          Card(
-            child: Text('Lista de transações'),
+          Column(
+            children: _transactions.map((tr){
+              return Card(
+                child: Text(tr.title),
+              );
+            }).toList(),
           )
         ],
       ),
