@@ -1,4 +1,6 @@
 
+import 'package:flutter/material.dart';
+
 class Transaction {
   // Variáveis
   final String id;
@@ -9,9 +11,9 @@ class Transaction {
 
   // Construtor
   Transaction({
-    required this.id,
-    required this.title,
-    required this.value,
-    required this.date
+    @required this.id,
+    @required this.title,
+    @required this.value,
+    @required this.date
   });
 }
