@@ -60,13 +60,18 @@ class MyHomePage extends StatelessWidget {
                       ),
                       decoration: BoxDecoration(
                         border: Border.all(
-                          color: Colors.black,
+                          color: Colors.green,
                           width: 2,
                         )
                       ),
                       padding: EdgeInsets.all(10),
                       child: Text(
-                        tr.value.toString()
+                        tr.value.toString(),
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
+                          color: Colors.green
+                        ),
                       ),
                     )
                     ,
