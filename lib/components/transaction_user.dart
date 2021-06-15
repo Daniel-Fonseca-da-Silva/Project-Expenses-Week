@@ -33,6 +33,7 @@ class _TransactionUserState extends State<TransactionUser> {
       date: DateTime.now()
     );
 
+    // Called when value is changed
     setState(() {
       _transactions.add(newTransaction);
     });
@@ -42,8 +43,9 @@ class _TransactionUserState extends State<TransactionUser> {
   @override
   Widget build(BuildContext context) {
     return Column(
-        children: [TransactionList(_transactions.toList()),
-        TransactionForm()
+        children: [
+        TransactionList(_transactions.toList()),
+        TransactionForm(_addTransaction) // Add to method to child by constructor
         ]
       );
   }
