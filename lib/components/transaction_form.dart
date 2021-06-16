@@ -6,8 +6,22 @@ class TransactionForm extends StatelessWidget {
   final titleController = TextEditingController();
   final valueController = TextEditingController();
 
-  // Function 
+  // Functions
   final void Function(String, double) onSubmit;
+
+  _submitForm() {
+
+    final title = titleController.text;
+    final value = double.tryParse(valueController.text) ?? 0.0;
+
+    if(title .isEmpty || value <= 0)
+    {
+      return;
+    }
+
+    onSubmit(title, value); // Throw to submit function
+                
+  }
 
   // Constructor 
   TransactionForm(this.onSubmit); // Throw information to father  
@@ -22,12 +36,15 @@ class TransactionForm extends StatelessWidget {
           children: [
             TextField(
               controller: titleController,
+              onSubmitted: (_) => _submitForm(),
               decoration: InputDecoration(
                 labelText: 'Titulo',
               ),
             ),
             TextField(
               controller: valueController,
+              keyboardType: TextInputType.numberWithOptions(decimal: true), // Keyboard number ANDROID/IOS
+              onSubmitted: (_) => _submitForm(),
               decoration: InputDecoration(
                 labelText: 'Valor (R\$)',
               ),
@@ -40,11 +57,7 @@ class TransactionForm extends StatelessWidget {
                   style: ElevatedButton.styleFrom(
                     primary: Colors.green,
                   ),
-                  onPressed: () {
-                    final title = titleController.text;
-                    final value = double.tryParse(valueController.text) ?? 0.0;
-                    onSubmit(title, value); // Throw to submit function
-                  },
+                  onPressed: _submitForm 
                 ),
               ],
             )
