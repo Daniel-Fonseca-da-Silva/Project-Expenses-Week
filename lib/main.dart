@@ -45,11 +45,17 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   
-  final _transactions = {
-    Transaction(
-        id: 't1', title: 'Conta #0', value: 49.99, date: DateTime.now()),
-    Transaction(
-        id: 't2', title: 'Conta #1', value: 58.99, date: DateTime.now()),
+  final  Set<Transaction> _transactions = {
+    // Transaction(
+    //     id: 't1',
+    //     title: 'Conta #0',
+    //     value: 49.99,
+    //     date: DateTime.now()),
+    // Transaction(
+    //     id: 't2',
+    //     title: 'Conta #1',
+    //     value: 58.99,
+    //     date: DateTime.now()),
   };
 
   // Method
